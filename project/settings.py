@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'contact',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +55,9 @@ ROOT_URLCONF = 'project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'templates_base'
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -103,9 +106,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pt-br'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
@@ -116,6 +119,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static_base'
+]
+
+STATIC_ROOT = BASE_DIR / 'static'  # Nesta pasta será salvo todos arquivos staticos coletados de 'static' (STATIC_URL')
+# e 'static_base' (STATICFILES_DIR)
+
+# Rodando o comando py manage.py collectstatic, o django vai coletar todos arquivos que estão nas pastas 'static' e vai
+# criar uma pasta (a pasta será 'static') na raiz do projeto onde serão salvos os arquivos coletados.
+
+MEDIA_URL = 'media/' # os arquivos (imagens) enviada pelo usuário serão salvos nesta pasta. 
+
+MEDIA_ROOT = BASE_DIR / 'media' # o caminho que o servidor vai seguir para pegar a imagem carregada pelo usuário. Esse caminho leva ao diretório (MEDIA_URL = 'media/') onde é guardado as imagens enviadas pelo usuário.
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

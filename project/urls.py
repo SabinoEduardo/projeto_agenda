@@ -15,8 +15,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
+    path('', include('contact.urls')),
     path('admin/', admin.site.urls),
 ]
+
+# O MEDIA_URL é o nome do diretório onde estão as imagens e o MEDIA_ROOT é o caminho a ser seguido para acessar o diretório das imagens. Essa linha é para servimos a nossa página os aquivos enviados pelo usuário.
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) 
+
+
+
