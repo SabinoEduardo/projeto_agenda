@@ -52,7 +52,7 @@ class Contact(models.Model):
         User, 
         on_delete=models.SET_NULL,
         blank=True, null=True
-        ) # Esse campo serve para inforar o proprietário do contato. Está linkado a clase (model) User do django (from django.contrib.auth.models import User)
+        ) # Esse campo serve para informar o proprietário do contato. Está linkado a clase (model) User do django (from django.contrib.auth.models import User)
     
     def __str__(self):
         return self.first_name
