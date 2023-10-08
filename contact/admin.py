@@ -6,12 +6,13 @@ from contact import models
 @admin.register(models.Contact)
 class ContactAdmin(admin.ModelAdmin):
     
-    list_display = ['first_name', 'last_name', 'phone', 'email', 'category']
+    list_display = ['id', 'first_name', 'last_name', 'phone', 'email', 'category', 'show']
     search_fields = ['first_name']
-    ordering =['id']
+    ordering = ['id']
     list_per_page = 50
     list_max_show_all = 50
-    list_display_links = ['first_name', 'last_name']
+    list_display_links = ['id', 'phone']
+    list_editable = ['first_name', 'last_name', 'show']
 
 
 @admin.register(models.Category)

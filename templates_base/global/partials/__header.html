@@ -1,0 +1,36 @@
+<header class="header">
+    <h1 class="header-heading">
+         <a href="{% url 'contact:index' %}" class="header-link">
+             Agenda
+         </a>
+    </h1>
+    
+    <nav class="menu">
+     <ul class="menu-list">
+         <li class="meu-item">
+             <a href="{% url 'contact:create_contact' %}" class="menu-link">
+                 Create
+             </a>
+         </li>
+         <li class="meu-item">
+             <a href="#" class="menu-link">
+                 Link 2
+             </a>
+         </li>
+     </ul>
+    </nav>
+
+    <div class="search">
+         <form 
+             action="{% url 'contact:search_contact' %}" 
+             method="GET">
+            <input 
+                type="text" class="search-input"
+                placeholder="Search"
+                id="search"
+                name="q"
+                value="{{ search_value }}"
+            >
+         </form>
+    </div>
+ </header>
