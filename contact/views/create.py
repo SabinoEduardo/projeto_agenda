@@ -95,6 +95,6 @@ def delete(request, contact_id):
         'confirmation':confirmation
         }
     
-    return render(request, 'contact/contact.html', context)
+    return render(request, 'contact/get_contact.html', context)
     
     

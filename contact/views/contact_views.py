@@ -57,7 +57,7 @@ def search(request):
     )
 
 
-def contact(request, contact_id):
+def get_contact(request, contact_id):
 
     # Função para busca um deteminado objeto de acordo com o ID
     
@@ -74,6 +74,6 @@ def contact(request, contact_id):
     
     return render(
         request,
-        'contact/contact.html', 
+        'contact/get_contact.html', 
         context
     )

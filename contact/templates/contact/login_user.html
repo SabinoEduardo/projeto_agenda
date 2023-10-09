@@ -4,9 +4,17 @@
 
   <div class="form-wrapper">
 
-    <h2>Login</h2>
+    <h2>Login {{user}} {{user.is_authenticated}}</h2>
 
-    {% include "contact/partials/_user-form.html" %}
+    {% if user.is_authenticated %}
+      <p>
+        Você fez login como {{user}} clica
+         <a href="{% url "contact:logout" %}">aqui</a> para sair
+      </p>
+
+    {% else %}
+      {% include "contact/partials/_user-form.html" %}
+    {% endif %}
     
   </div>
 {% endblock content %}
